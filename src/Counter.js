@@ -12,6 +12,14 @@ class Counter extends Component {
     count: 10,
   };
 
+  componentDidMount() {
+    console.log('MOUNT')
+  }
+
+  componentDidUpdate() {
+    console.log('UPDATE')
+  }
+
   incrementCounter = () => {
     this.setState((prevState) => ({count: prevState.count + 1}));
   };
@@ -28,6 +36,7 @@ class Counter extends Component {
 
   render() {
     const { count } = this.state;
+    console.log('RENDER');
 
     return (
       <div>

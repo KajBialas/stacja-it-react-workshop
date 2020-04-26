@@ -3,6 +3,7 @@ import Header from './Header';
 import Footer from './Footer';
 import TextSection from './TextSection';
 import Counter from './Counter';
+import PostDetails from './PostDetails';
 
 
 const TEXTS = {
@@ -21,6 +22,8 @@ function App() {
       <TextSection text1={TEXTS.TEXT_SECTION2}/>
       <hr/>
       <Counter />
+      <hr/>
+      <PostDetails />
       <hr/>
       <Footer text={TEXTS.FOOTER}/>
     </>
