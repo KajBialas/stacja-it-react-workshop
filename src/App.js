@@ -9,6 +9,7 @@ const TEXTS = {
   LOGIN_BUTTON_TEXT: 'Zaloguj się',
   TEXT_SECTION1: 'Treść strony 1',
   TEXT_SECTION2: 'Treść strony 2',
+  FOOTER: 'Copyright 2020',
 };
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
       <Header title={TEXTS.TITLE} button={TEXTS.LOGIN_BUTTON_TEXT} />
       <TextSection text1={TEXTS.TEXT_SECTION1}/>
       <TextSection text1={TEXTS.TEXT_SECTION2}/>
-      <Footer />
+      <Footer text={TEXTS.FOOTER}/>
     </>
   );
 }

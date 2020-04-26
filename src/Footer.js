@@ -1,9 +1,8 @@
 import React from 'react';
-const TEXT = "Stopka strony";
 
-function Footer() {
+function Footer(props) {
   return (
-    <footer>{TEXT}</footer>
+    <footer>{props.text}</footer>
   )
 }
 
