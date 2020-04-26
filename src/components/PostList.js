@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
 
-class PostDetails extends Component {
+class PostList extends Component {
   state = {
     isLoading: false,
     isError: false,
-    postDetails: {}
+    postList: [],
   };
 
   componentDidMount() {
     this.setState({isLoading: true});
-    fetch('https://jsonplaceholder.typicode.com/posts/1')
+    fetch('https://jsonplaceholder.typicode.com/posts')
       .then(response => response.json())
       .then(data => {
         setTimeout(() =>
           this.setState({
-            postDetails: data,
+            postList: data,
             isLoading: false,
           }),
           3000);
@@ -27,17 +27,20 @@ class PostDetails extends Component {
       });
   }
 
+  renderPosts = () => this.state.postList.map((postItem) => <div key={postItem.id}><h3>{postItem.title}</h3><p>{postItem.body}</p></div>);
+
   render() {
-    const { isLoading, isError, postDetails } = this.state;
+    const { isLoading, isError } = this.state;
 
     return (
       <div>
+        <h1>Lista innych postów:</h1>
         {isLoading ? <div>Loader</div> : null}
         {isError ? <div>Błąd ładowania danych</div> : null}
-        {!isLoading && !isError ? `Post: ${postDetails.title}` : null}
+        {!isLoading && !isError ? this.renderPosts() : null}
       </div>
     )
   }
 }
 
-export default PostDetails;
+export default PostList;

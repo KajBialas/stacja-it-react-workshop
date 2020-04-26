@@ -1,20 +1,21 @@
 import React, { Component } from 'react';
+import Comments from './Comments';
 
-class PostList extends Component {
+class PostDetails extends Component {
   state = {
     isLoading: false,
     isError: false,
-    postList: [],
+    postDetails: {}
   };
 
   componentDidMount() {
     this.setState({isLoading: true});
-    fetch('https://jsonplaceholder.typicode.com/posts')
+    fetch('https://jsonplaceholder.typicode.com/posts/1')
       .then(response => response.json())
       .then(data => {
         setTimeout(() =>
           this.setState({
-            postList: data,
+            postDetails: data,
             isLoading: false,
           }),
           3000);
@@ -27,20 +28,20 @@ class PostList extends Component {
       });
   }
 
-  renderPosts = () => this.state.postList.map((postItem) => <div key={postItem.id}>{postItem.title}</div>);
-
   render() {
-    const { isLoading, isError } = this.state;
+    const { isLoading, isError, postDetails } = this.state;
 
     return (
       <div>
-        <h1>Lista innych postów:</h1>
         {isLoading ? <div>Loader</div> : null}
         {isError ? <div>Błąd ładowania danych</div> : null}
-        {!isLoading && !isError ? this.renderPosts() : null}
+        {!isLoading && !isError ? `Post: ${postDetails.title}` : null}
+        <hr/>
+        <Comments />
+        <hr/>
       </div>
     )
   }
 }
 
-export default PostList;
+export default PostDetails;
