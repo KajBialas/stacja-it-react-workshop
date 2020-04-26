@@ -1,4 +1,11 @@
 import React, { Component } from 'react';
+import Button from './Button';
+
+const TEXTS = {
+  BUTTON_INC: 'ZWIĘKSZ',
+  BUTTON_DEC: 'ZMNIEJSZ',
+  BUTTON_RES: 'RESET',
+};
 
 class Counter extends Component {
   state = {
@@ -6,15 +13,11 @@ class Counter extends Component {
   };
 
   incrementCounter = () => {
-    this.setState({
-      count: this.state.count + 1,
-    });
+    this.setState((prevState) => ({count: prevState.count + 1}));
   };
 
   decrementCounter = () => {
-    this.setState({
-      count: this.state.count - 1,
-    });
+    this.setState((prevState) => ({count: prevState.count - 1}));
   };
 
   resetCounter = () => {
@@ -24,13 +27,15 @@ class Counter extends Component {
   };
 
   render() {
+    const { count } = this.state;
+
     return (
       <div>
-        Counter: {this.state.count}
+        Counter: {count}
         <div>
-          <button onClick={this.incrementCounter}>+</button>
-          <button onClick={this.decrementCounter}>-</button>
-          <button onClick={this.resetCounter}>RESET</button>
+          <Button text={TEXTS.BUTTON_INC} handleClick={this.incrementCounter} />
+          <Button text={TEXTS.BUTTON_DEC} handleClick={this.decrementCounter} />
+          <Button text={TEXTS.BUTTON_RES} handleClick={this.resetCounter} />
         </div>
       </div>
     )
