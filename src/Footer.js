@@ -1,8 +1,9 @@
 import React from 'react';
+const TEXT = "Stopka strony";
 
 function Footer() {
   return (
-    <header>Stopka strony</header>
+    <footer>{TEXT}</footer>
   )
 }
 
