@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 class Comments extends Component {
   state = {
     currentValue: '',
+    commentsList: [],
   };
 
   handleChange = (event) => {
@@ -13,9 +14,13 @@ class Comments extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log('FORMULARZ WYSŁANY', this.state.currentValue);
-    this.setState({currentValue: ''});
+    this.setState({
+      currentValue: '',
+      commentsList: [...this.state.commentsList, this.state.currentValue],
+    });
   };
+
+  renderComments = () => this.state.commentsList.map((comment, index) => <div key={index}>{comment}</div>);
 
   render() {
     return(
@@ -28,6 +33,8 @@ class Comments extends Component {
               <button type="submit">Dodaj komentarz</button>
             </label>
           </form>
+          <h2>Lista komentarzy:</h2>
+          {this.renderComments()}
         </div>
       </div>
     )
