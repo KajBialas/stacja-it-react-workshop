@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import TextSection from './TextSection';
+import Counter from './Counter';
 
 
 const TEXTS = {
@@ -18,6 +19,9 @@ function App() {
       <Header title={TEXTS.TITLE} button={TEXTS.LOGIN_BUTTON_TEXT} />
       <TextSection text1={TEXTS.TEXT_SECTION1}/>
       <TextSection text1={TEXTS.TEXT_SECTION2}/>
+      <hr/>
+      <Counter />
+      <hr/>
       <Footer text={TEXTS.FOOTER}/>
     </>
   );
