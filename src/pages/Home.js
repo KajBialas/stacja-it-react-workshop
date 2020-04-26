@@ -1,10 +1,10 @@
 import React from 'react';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import TextSection from './components/TextSection';
-import Counter from './components/Counter';
-import PostDetails from './components/PostDetails';
-import PostList from './components/PostList';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import TextSection from '../components/TextSection';
+import Counter from '../components/Counter';
+import PostDetails from '../components/PostDetails';
+import PostList from '../components/PostList';
 
 
 const TEXTS = {
@@ -15,7 +15,7 @@ const TEXTS = {
   FOOTER: 'Copyright 2020',
 };
 
-function App() {
+function Home() {
   return (
     <>
       <Header title={TEXTS.TITLE} button={TEXTS.LOGIN_BUTTON_TEXT} />
@@ -32,4 +32,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;
