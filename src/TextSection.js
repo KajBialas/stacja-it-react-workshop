@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 
-const TEXT = "Sekcja tekstowa";
 
 class TextSection extends Component {
-  text2 = "Sekcja tekstowa 2";
-
   handleDisplay = () => {
     alert('Informacja dla użytkownika');
   };
@@ -13,8 +10,9 @@ class TextSection extends Component {
   render() {
     return (
       <div>
-        {TEXT}
-        {this.text2}
+        <p>
+          {this.props.text1}
+        </p>
         <button onClick={this.handleDisplay}>Informuj użytkownika</button>
       </div>
     )

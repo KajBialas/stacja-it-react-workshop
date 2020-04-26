@@ -1,13 +1,14 @@
 import React from 'react';
 
-function Header() {
+function Header(props) {
   const handleLogButton = () => {
     console.log('Logowanie użytkownika');
   };
 
   return (
-    <header>Nagłówek strony
-      <button onClick={handleLogButton}>Zaloguj się</button>
+    <header>
+      <h1>{props.title}</h1>
+      <button onClick={handleLogButton}>{props.button}</button>
     </header>
   )
 }
