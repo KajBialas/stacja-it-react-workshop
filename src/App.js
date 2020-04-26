@@ -4,6 +4,7 @@ import Footer from './Footer';
 import TextSection from './TextSection';
 import Counter from './Counter';
 import PostDetails from './PostDetails';
+import PostList from './PostList';
 
 
 const TEXTS = {
@@ -24,6 +25,7 @@ function App() {
       <Counter />
       <hr/>
       <PostDetails />
+      <PostList />
       <hr/>
       <Footer text={TEXTS.FOOTER}/>
     </>
